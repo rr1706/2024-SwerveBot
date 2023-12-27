@@ -89,7 +89,7 @@ public class Drivetrain extends SubsystemBase {
     m_odometry.resetPosition(ahrs.getRotation2d(), getModulePositions(), new Pose2d());
     ahrs.reset();
 
-        // Configure the AutoBuilder last
+    // Configure the AutoBuilder last
     AutoBuilder.configureHolonomic(
         this::getPose, // Robot pose supplier
         this::resetOdometry, // Method to reset odometry (will be called if your auto has a starting pose)
@@ -99,7 +99,18 @@ public class Drivetrain extends SubsystemBase {
             new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants
             new PIDConstants(5.0, 0.0, 0.0), // Rotation PID constants
             DriveConstants.kMaxSpeedMetersPerSecond, // Max module speed, in m/s
-            0.5*Math.sqrt(Math.pow(DriveConstants.kWheelBaseLength,2)+Math.pow(DriveConstants.kWheelBaseWidth,2)), // Drive base radius in meters. Distance from robot center to furthest module.
+            0.5 * Math.sqrt(Math.pow(DriveConstants.kWheelBaseLength, 2) + Math.pow(DriveConstants.kWheelBaseWidth, 2)), // Drive
+                                                                                                                         // base
+                                                                                                                         // radius
+                                                                                                                         // in
+                                                                                                                         // meters.
+                                                                                                                         // Distance
+                                                                                                                         // from
+                                                                                                                         // robot
+                                                                                                                         // center
+                                                                                                                         // to
+                                                                                                                         // furthest
+                                                                                                                         // module.
             new ReplanningConfig() // Default path replanning config. See the API for the options here
         ),
         this // Reference to this subsystem to set requirements
@@ -134,7 +145,7 @@ public class Drivetrain extends SubsystemBase {
       rot = 0.0;
     }
     if (Math.abs(xSpeed) < 0.02) {
-      xSpeed  = 0.0;
+      xSpeed = 0.0;
     }
     if (Math.abs(ySpeed) < 0.02) {
       ySpeed = 0.0;

@@ -18,9 +18,10 @@ import frc.robot.Constants.GlobalConstants;
 import frc.robot.Constants.ModuleConstants.Aziumth;
 import frc.robot.Constants.ModuleConstants.Drive;
 
-    /**
-     * FRC 1706 Class for creating a swerve module with 2 SparkMax motor controllers and an analog azimuth Encoder
-     */
+/**
+ * FRC 1706 Class for creating a swerve module with 2 SparkMax motor controllers
+ * and an analog azimuth Encoder
+ */
 public class SparkMaxSwerveModule extends SubsystemBase {
     private final CANSparkMax m_azimuthMotor;
     private final CANSparkMax m_driveMotor;
@@ -33,14 +34,14 @@ public class SparkMaxSwerveModule extends SubsystemBase {
     private final SimpleMotorFeedforward m_driveFF;
     private double m_referenceAngleRadians = 0;
 
-  /**
-   * Create a new FRC 1706 SparkMaxSwerveModule Object
-   *
-   * @param drive The drive SparkMax CAN ID.
-   * @param azimuth The azimuth SparkMax CAN ID.
-   * @param absEnc The analog encoder port for the absolute encoder. 
-   * @param offset The offset for the analog encoder. 
-   */
+    /**
+     * Create a new FRC 1706 SparkMaxSwerveModule Object
+     *
+     * @param drive   The drive SparkMax CAN ID.
+     * @param azimuth The azimuth SparkMax CAN ID.
+     * @param absEnc  The analog encoder port for the absolute encoder.
+     * @param offset  The offset for the analog encoder.
+     */
     public SparkMaxSwerveModule(int drive, int azimuth, int absEnc, double offset) {
         m_driveMotor = new CANSparkMax(drive, MotorType.kBrushless);
         m_driveMotor.setSmartCurrentLimit(CurrentLimit.kDrive);
